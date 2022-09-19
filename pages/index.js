@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { useTheme } from 'next-themes';
 
 export default function Home() {
-  const { theme, setTheme } = useTheme();
+  const { systemTheme, theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -11,7 +11,7 @@ export default function Home() {
   }, []);
 
   if (!mounted) return null;
-  const currentTheme = theme === 'system' ? 'system' : theme;
+  const currentTheme = theme === 'system' ? systemTheme : theme;
 
   return (
     <div className="grid place-items-center h-screen">
